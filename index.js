@@ -2,7 +2,9 @@
 const firstname = document.getElementById('firstname')
 const lastname = document.getElementById('lastname')
 const address = document.getElementById('address')
-const small = document.getElementById('small')
+const small = document.getElementById('small') 
+
+
 
 
 
@@ -11,14 +13,15 @@ function showError(input, massage){
 
     const formControl = input.parentElement;
     formControl.className= "text-danger" 
-    const small = formControl.querySelector('small');
-    small.innerText = massage
+    const errorClass = document.getElementById('small-' + input.id);
+    console.log(input.id);
+    errorClass.innerText = massage
 }
 function showSuccess(input){
     const formControl = input.parentElement;
     formControl.className= "text-success ";
-    const small = formControl.querySelector('small');
-    small.className = "invisible"
+    const errorClass = document.getElementById('small-' + input.id);
+    errorClass.innerText = ""
 }
     
 function checkRequared(inputArr){
@@ -56,3 +59,5 @@ function checkRequared(inputArr){
         return input.id.charAt(0).toUpperCase() + input.id.slice(1);
     ;}
 
+
+  
