@@ -2,9 +2,10 @@
 const firstname = document.getElementById('firstname')
 const lastname = document.getElementById('lastname')
 const address = document.getElementById('address')
-const small = document.getElementById('small') 
-
-
+const small = document.getElementById('small')
+const dateOfBirth = document.getElementById ('dateOfBirth')
+const note = document.getElementById('note')
+const gender = document.getElementById('gender')
 
 
 
@@ -53,7 +54,27 @@ function checkRequared(inputArr){
        checkLength(address,3, 35);
       
 
+    users.push({
+
+      firstname: firstname.value,
+      lastname: lastname.value,
+      address: address.value,
+      gender: gender.value,
+      dateOfBirth: dateOfBirth.value,
+      note: note.value,
+
+
+    })
+
+     location.reload()
+     alert(note.value)
+
+       localStorage.setItem('user', JSON.stringify(users));
+
+
     });
+
+     let users = JSON.parse(localStorage.getItem("user")) || [];
 
     function getFieldname(input){
         return input.id.charAt(0).toUpperCase() + input.id.slice(1);
